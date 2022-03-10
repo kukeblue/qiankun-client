@@ -33,5 +33,9 @@ sleep(1000)
 //     地图 + 270
 // }
 const common = require('./common.js')
-console.log(common.a);
+const fentu = require('./流程分图')
+const gamePanel = require('./game')
+
+
+fentu.F_主线分图()
 // 碗子山小地图寻路()
