@@ -1,10 +1,8 @@
-
-// var ocr = $plugins.load("com.hraps.ocr")
 if (!requestScreenCapture(true)) {
     toast("请求截图失败");
     exit();
 }
-// sleep(1000)
+sleep(1000)
 // var img = captureScreen();
 // results = ocr.detect(img.getBitmap(), 1)
 // console.log(results);
@@ -34,7 +32,6 @@ if (!requestScreenCapture(true)) {
 //     });
 //     地图 + 270
 // }
-var common = require('common.js')
-console.log(common);
-common.打开隐藏功能()
+const common = require('./common.js')
+console.log(common.a);
 // 碗子山小地图寻路()
