@@ -15,23 +15,25 @@ function Common() {
         });
     }
     this.识别区域文字 = function (img, x, y, x1, y1) {
+        console.log('识别区域文字', x, y, x1, y1);
         if (x && y && x1 && y1) {
             img = images.clip(img, x, y, x1 - x, y1 - y)
         }
         results = ocr.detect(img.getBitmap(), 1)
         results = ocr.filterScore(results, 0.5, 0.5, 0.5)
-        for (var i = 0; i < results.size(); i++) {
-            var re = results.get(i)
+        // for (var i = 0; i < results.size(); i++) {
+            // var re = results.get(i)
             // log("结果:" + i + "  文字:" + re.text + "  位置:" + re.frame)
-            // 角度类型:" + re.angleType
+            // // 角度类型:" + re.angleType)
             // log("区域置信度:" + re.dbScore + "  角度置信度:" + re.angleScore + "  文字置信度:" + re.crnnScore + "\n")
-        }
+        // }
         img.recycle()
         return results
     }
     this.地点信息提取 = function (results) {
         for (var i = 0; i < results.size(); i++) {
             var re = results.get(i)
+            console.log(re);
             if (re.text.includes('狮驼岭')) {
                 return '狮驼岭'
             } else if (re.text.includes('花果山')) {
@@ -53,7 +55,7 @@ function Common() {
             else if (re.text.includes('大唐国境')) {
                 return '大唐国境'
             }  
-            else if (re.text.includes('麒麟山')) {
+            else if (re.text.includes('麒麟山') || re.text.includes('麟山')) {
                 return '麒麟山'
             } 
             else if (re.text.includes('长寿郊外')) {

@@ -24,6 +24,23 @@ function GamePanel() {
             console.log('打开道具失败');
         }
     }
+    this.F_使用飞行旗 = function () {
+        while(true) {
+            let img = captureScreen()
+            images.findMultiColors(img,)
+
+            F_打开道具()
+            sleep(500)
+        }
+        let img = captureScreen()
+        const p = images.findMultiColors(img, game_P_道具[0], game_P_道具[1], {});
+        if (p) {
+            click(p.x, p.y)
+            return p
+        } else {
+            console.log('打开道具失败');
+        }
+    }
 }
 
 module.exports = new GamePanel();
